@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "sections": [
+    {
+      "type": "text",
+      "content": "Independent designer crafting focused digital experiences."
+    },
+    {
+      "type": "gallery",
+      "layout": "grid",
+      "images": [
+        {
+          "url": "https://res.cloudinary.com/demo/image/upload/sample.jpg",
+          "alt": "Studio project preview"
+        },
+        {
+          "url": "https://res.cloudinary.com/demo/image/upload/cld-sample.jpg",
+          "alt": "Editorial portfolio image"
+        }
+      ]
+    },
+    {
+      "type": "carousel",
+      "items": [
+        {
+          "url": "https://res.cloudinary.com/demo/image/upload/sample.jpg"
+        },
+        {
+          "url": "https://res.cloudinary.com/demo/image/upload/cld-sample.jpg"
+        }
+      ]
+    }
+  ]
+}

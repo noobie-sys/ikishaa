@@ -1,0 +1,6 @@
+tmp
+bin
+.env
+.env.*
+!.env.example
+air-build.log

@@ -1,0 +1,53 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: ikisha
+      POSTGRES_PASSWORD: ikisha
+      POSTGRES_DB: ikisha
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: docker/Dockerfile.dev
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: development
+      COOKIE_SECURE: "false"
+      GOOGLE_REDIRECT_URL: http://localhost:8080/api/auth/google/callback
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend:/app
+      - backend_go_cache:/go/pkg/mod
+      - backend_go_build_cache:/root/.cache/go-build
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    environment:
+      NEXT_PUBLIC_API_BASE_URL: http://localhost:8080
+      INTERNAL_API_BASE_URL: http://backend:8080
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+volumes:
+  postgres_data:
+  backend_go_cache:
+  backend_go_build_cache:
