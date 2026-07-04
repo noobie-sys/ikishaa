@@ -1,6 +1,6 @@
 # Ikisha Portfolio Platform
 
-Monolith-first premium portfolio publishing platform for photographers and videographers. Ikisha is a curated publishing engine: users edit content, while internal versioned templates own design, layout, media behavior, and motion.
+Monolith-first premium portfolio publishing platform for photographers, videographers, designer, architecture and any one who loves to showcase thier picture and art but not have access to premium minimal website to showcase. Ikisha is a curated publishing engine: users edit content, while internal versioned templates own design, layout, media behavior, and motion.
 
 ## Layout
 
